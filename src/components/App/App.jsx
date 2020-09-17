@@ -1,9 +1,11 @@
 import React from 'react';
-import { Wrapper } from './App.styles'
+import { Wrapper, Container } from './App.styles'
 
 function App () {
     return <Wrapper>
-        todo: app
+        <Container>
+            todo: app
+        </Container>
     </Wrapper>
 }
 
