@@ -18,4 +18,11 @@ export const Container = styled.div`
     background-color: #fff;
     box-shadow: 0 3px 10px rgba(0, 0, 0, .15);
     border-radius: 20px;
+
+    div#stats h2 {
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 12px;
+        color: #004D61;
+    }
 `

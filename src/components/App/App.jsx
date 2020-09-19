@@ -56,8 +56,8 @@ function App () {
 
                 middle={<ShoppingList title="Sua lista de compras" products={selectedProducts} onToggle={handleToggle} />}
                 
-                right={<div>
-                    Estatísticas
+                right={<div id="stats">
+                    <h2>Estatísticas:</h2>
                     <LineChart 
                         title="Saudável" 
                         color={colors[0]} 
