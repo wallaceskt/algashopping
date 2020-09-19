@@ -3,7 +3,7 @@ import { Wrapper, Title, TotalValue } from './Price.styles'
 
 function Price ({ title, totalValue }) {
     return <Wrapper>
-        <Title>{ title }</Title>
+        <Title>{ title }:</Title>
         <TotalValue>{ totalValue }</TotalValue>
     </Wrapper>
 }
