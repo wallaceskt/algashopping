@@ -6,6 +6,7 @@ import LineChart from '../../shared/LineChart/LineChart'
 import ShoppingList from '../../components/ShoppingList/ShoppingList'
 import productsMock from '../../mocks/products.json'
 import extractPercentage from '../../utils/extractPercent'
+import Price from '../Price/Price'
 
 function App () {
     const colors = ['#62CBC6', '#00ABAD', '#00858C', '#006073', '#004D61']
@@ -90,14 +91,10 @@ function App () {
                         )} 
                     />
 
-                    <div style={{ marginTop: 12 }}>
-                        <h2 style={{ fontWeight: 400, fontSize: 12, color: '#00364A' }}>
-                            Previsão de gastos
-                        </h2>
-                        <div style={{ fontSize: 24 }}>
-                            { totalPrice.toLocaleString('pt-BR', {minimumFractionDigits: 2, style: 'currency', currency: 'BRL'}) }
-                        </div>
-                    </div>
+                    <Price 
+                        title="Previsão de gastos" 
+                        totalValue={ totalPrice.toLocaleString('pt-BR', {minimumFractionDigits: 2, style: 'currency', currency: 'BRL'}) }
+                    />
                 </div>}
             />
         </Container>
