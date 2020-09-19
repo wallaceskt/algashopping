@@ -2,28 +2,41 @@ import React, { useState } from 'react'
 import AppHeader from '../AppHeader/AppHeader'
 import AppContainer from '../AppContainer/AppContainer'
 import { Wrapper, Container } from './App.styles'
-import Checkbox from '../../shared/Checkbox/Checkbox'
 import LineChart from '../../shared/LineChart/LineChart'
+import ShoppingList from '../../components/ShoppingList/ShoppingList'
+import productsMock from '../../mocks/products.json'
 
 function App () {
-    const [lettuce, setLettuce] = useState(true)
-    const [rice, setRice] = useState(false)
+    const [products, setProducts] = useState(productsMock.products)
     const colors = ['#62CBC6', '#00ABAD', '#00858C', '#006073', '#004D61']
+
+    function handleToggle (id, checked, name) {
+        const newProducts = products.map(product => 
+            product.id === id
+            ? {...product, checked: !product.checked} 
+            : product
+
+            // if (product.id === id) {
+            //     return {
+            //         // Spread
+            //         ...product,
+            //         checked: !product.checked
+            //     }
+            // } else {
+            //     return product
+            // }
+        )
+
+        setProducts(newProducts)
+    }
 
     return <Wrapper>
         <Container>
             <AppHeader />
             <AppContainer
-                left={<div>
-                    Produtos disponíveis
-                    <Checkbox value={lettuce} title="Alface" onClick={() => setLettuce(!lettuce)} />
-                    <Checkbox value={rice} title="Arroz" onClick={() => setRice(!rice)} />
-                </div>}
+                left={<ShoppingList title="Produtos disponíveis" products={products} onToggle={handleToggle} />}
 
-                middle={<div>
-                    Sua lista de compras
-                    <Checkbox value={rice} title="Arroz" onClick={() => setRice(!rice)} />
-                </div>}
+                middle={<ShoppingList title="Sua lista de compras" products={products} onToggle={handleToggle} />}
                 
                 right={<div>
                     Estatísticas
